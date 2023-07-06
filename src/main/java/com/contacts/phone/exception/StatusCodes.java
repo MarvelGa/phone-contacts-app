@@ -1,0 +1,18 @@
+package com.contacts.phone.exception;
+
+public enum StatusCodes {
+
+    OK,
+    FORBIDDEN,
+    SQL_ERROR,
+    UNSUPPORTED_MEDIA_TYPE,
+    GENERIC_ERROR,
+    DUPLICATE_EMAIL,
+    DUPLICATE_USERNAME,
+    NOT_UNIQUE_DATA,
+    IRRELEVANT_USERNAME,
+    INVALID_PASSWORD,
+    ENTITY_NOT_FOUND,
+    INVALID_DATA
+}
+
