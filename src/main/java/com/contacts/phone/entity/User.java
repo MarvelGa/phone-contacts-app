@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -54,19 +53,11 @@ public class User implements Serializable, UserDetails {
     @Column(nullable = false)
     private LocalDateTime modified;
 
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    @ManyToMany(mappedBy = "userFavorites")
-//    private List<Product> productFavorites = new ArrayList<>();
-//
-//    @OneToOne(cascade = CascadeType.MERGE)
-//    @JoinColumn(name = "user_profile_id")
-//    private UserProfile userProfile;
-//
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    private List<ShoppingCartItem> shoppingCart;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Contact> contacts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

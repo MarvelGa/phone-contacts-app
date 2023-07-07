@@ -1,6 +1,5 @@
 package com.contacts.phone.entity;
 
-import com.contacts.phone.exception.custom.EntityNotFoundException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.contacts.phone.entity.Permission.*;
-import static com.contacts.phone.exception.StatusCodes.ENTITY_NOT_FOUND;
 
 
 @Slf4j
@@ -32,19 +30,6 @@ public enum RoleEnum {
 
     @Getter
     private final Set<Permission> permissions;
-
-    public static RoleEnum getRoleByName(String roleName) {
-        RoleEnum role;
-        try {
-            log.info("Checking if such role exists, role = {}", roleName);
-            role = RoleEnum.valueOf(roleName.toUpperCase());
-            log.info("Yep, there is role called {}", role);
-        } catch (Exception e) {
-            log.error("No such role with name {} found", roleName);
-            throw new EntityNotFoundException(ENTITY_NOT_FOUND.name(), "Role is not found, requested role = " + roleName);
-        }
-        return role;
-    }
 
     public List<SimpleGrantedAuthority> getAuthorities() {
         var authorities = getPermissions()

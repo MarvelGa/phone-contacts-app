@@ -3,14 +3,50 @@
 2. USE the "http://localhost:8080/phone-contacts/ " url. And you will see the greeting message.
 3. Register user: POST method:
    http://localhost:8080/phone-contacts/users :
-   {
-   "userName":"userTest",
-   "email":"usertest@gmail.com",
+```diff
+  {
+   "userName":"userTest1",
+   "email":"usertest1@gmail.com",
    "password":"test19TT"
    }
+```
 4. Login user: POST method:
+   http://localhost:8080/phone-contacts/auth/login
+```diff
    {
-   "userName":"userTest",
+   "userName":"userTest1",
    "password":"test19TT"
    }
-5. 
+```
+5. ADD contact: POST method:
+ http://localhost:8080/phone-contacts/contacts
+```diff
+{
+
+    "name": "xxx",
+
+    "emails": ["xxx@xxx.com","yyy@yyy.com"],
+
+    "phones": ["+380939333333","+380939333334","+380939333335"]
+
+}
+```
+6. EDIT contact: PUT method:
+   http://localhost:8080/phone-contacts/contacts/c3e51107-a93d-4508-b337-659cb00ee49c
+```diff
+{
+  "name": "John111 Doe",
+  "emails": [
+    "john.doe11111@example.com",
+    "johndoe111@gmail.com"
+  ],
+  "phones": [
+    "+1-123-45617-7890",
+    "+1-987-654-3210"
+  ]
+}
+```
+7. DELETE a Contact: DELETE Method:
+   http://localhost:8080/phone-contacts/contacts/75b2a5aa-d2a6-4292-8a3f-430fd6debcd6
+8. GET All Contacts: GET Method:
+   http://localhost:8080/phone-contacts/contacts
