@@ -24,12 +24,12 @@ public class Contact {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "contact", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Email> emails = new HashSet<>();
+    private Set<Email> emails = new LinkedHashSet<>();
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "contact", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<PhoneNumber> phones = new HashSet<>();
+    private Set<PhoneNumber> phones = new LinkedHashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

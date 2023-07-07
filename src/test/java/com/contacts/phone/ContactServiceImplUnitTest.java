@@ -35,7 +35,7 @@ import static org.mockito.Mockito.*;
 
 @Transactional
 @ExtendWith({MockitoExtension.class})
-public class ContactServiceImplTest {
+public class ContactServiceImplUnitTest {
     @Mock
     private ContactRepository contactRepository;
 
