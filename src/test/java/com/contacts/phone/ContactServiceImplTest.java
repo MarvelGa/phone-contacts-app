@@ -94,7 +94,7 @@ public class ContactServiceImplTest {
 
         Optional<User> currentUser = Optional.of(user);
         UserDetails userDetails = User.builder()
-                .userName("testuser")
+                .login("testuser")
                 .password("testpassword")
                 .build();
 
@@ -113,7 +113,7 @@ public class ContactServiceImplTest {
         when(contactMapper.toEntity(any(ContactDto.class))).thenReturn(contact);
         when(contactMapper.toDto(any(Contact.class))).thenReturn(new ContactDto());
         when(contactMapper.toResponseDto(any(ContactDto.class))).thenReturn(new ResponseContactDto());
-        when(userRepository.findUserByUserName(any(String.class))).thenReturn(currentUser);
+        when(userRepository.findUserByLogin(any(String.class))).thenReturn(currentUser);
 
         // Act
         ResponseContactDto result = contactService.addContact(contactDto);

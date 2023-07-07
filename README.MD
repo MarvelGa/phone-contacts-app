@@ -4,8 +4,8 @@
 3. Register user: POST method:
    http://localhost:8080/phone-contacts/users :
 ```diff
-  {
-   "userName":"userTest1",
+ {
+   "login":"userTest1",
    "email":"usertest1@gmail.com",
    "password":"test19TT"
    }
@@ -13,10 +13,10 @@
 4. Login user: POST method:
    http://localhost:8080/phone-contacts/auth/login
 ```diff
-   {
-   "userName":"userTest1",
-   "password":"test19TT"
-   }
+  {
+    "login":"userTest1",
+    "password":"test19TT"
+}
 ```
 5. ADD contact: POST method:
  http://localhost:8080/phone-contacts/contacts

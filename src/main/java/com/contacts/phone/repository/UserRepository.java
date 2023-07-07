@@ -9,11 +9,11 @@ import java.util.UUID;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, UUID> {
-    boolean existsByUserName(String username);
+    boolean existsByLogin(String username);
 
     boolean existsByEmail(String email);
 
-    Optional<User> findUserByUserName(String userName);
+    Optional<User> findUserByLogin(String userName);
 
     Optional<User> findUserById(UUID uuid);
 

@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto registerUser(UserDto userDto) {
         checkEmailUnique(userDto.getEmail());
-        checkUsernameUnique(userDto.getUserName());
+        checkUsernameUnique(userDto.getLogin());
 
         User user = userMapper.toUser(userDto);
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private void checkUsernameUnique(String username) {
-        if (userRepository.existsByUserName(username)) {
+        if (userRepository.existsByLogin(username)) {
             throw new EntityAlreadyExistsException(DUPLICATE_USERNAME.name(), "This username had been taken");
         }
     }

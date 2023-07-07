@@ -24,7 +24,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        User user = userRepository.findUserByUserName(request.getUserName())
+        User user = userRepository.findUserByLogin(request.getLogin())
                 .orElseThrow(() -> new EntityNotFoundException(IRRELEVANT_USERNAME.name(), "This user does not exist"));
 
         if (!(passwordEncoder.matches(request.getPassword(), user.getPassword()))) {
@@ -33,7 +33,7 @@ public class AuthenticationService {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUserName(),
+                        request.getLogin(),
                         request.getPassword()
                 )
         );

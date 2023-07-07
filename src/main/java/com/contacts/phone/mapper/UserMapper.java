@@ -13,8 +13,7 @@ public interface UserMapper {
 
     User toUser(UserDto userDto);
 
-    @Mappings({@Mapping(target = "password", ignore = true),
-            @Mapping(target = "userName", source = "username")})
+    @Mappings({@Mapping(target = "password", ignore = true)})
     UserDto toDto(User user);
 
 }

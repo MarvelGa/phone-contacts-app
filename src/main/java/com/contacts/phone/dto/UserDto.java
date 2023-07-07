@@ -23,7 +23,7 @@ public class UserDto {
     @NotBlank(message = "Username is required field")
     @Length(min = 2, max = 30, message = "Username should contain from 2 to 30 characters")
     @Schema(description = "User name", required = true)
-    private String userName;
+    private String login;
 
     @NotBlank(message = "Email is required field")
     @Pattern(regexp = "^[^@]+@[^@.]+\\.[^@.]+$", message = "Email address should contain @ and . symbols")

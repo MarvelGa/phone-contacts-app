@@ -32,7 +32,7 @@ public class User implements Serializable, UserDetails {
     private UUID id;
 
     @Column(length = 30, unique = true, nullable = false)
-    private String userName;
+    private String login;
 
     @Column(length = 30, unique = true, nullable = false)
     private String email;
@@ -71,7 +71,7 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return login;
     }
 
     @Override

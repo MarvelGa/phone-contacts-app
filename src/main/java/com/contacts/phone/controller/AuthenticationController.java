@@ -101,7 +101,7 @@ public class AuthenticationController {
     ) {
         log.info(
                 "Start authentication for user={}",
-                request.getUserName()
+                request.getLogin()
         );
 
         ResponseEntity<AuthenticationResponse> response =
@@ -112,7 +112,7 @@ public class AuthenticationController {
         if (response.getStatusCode() == HttpStatus.OK) {
             log.info(
                     "User={} was authenticated successfully",
-                    request.getUserName()
+                    request.getLogin()
             );
         }
 

@@ -107,7 +107,7 @@ public class ContactServiceImpl implements ContactService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            Optional<User> user = userRepository.findUserByUserName(userDetails.getUsername());
+            Optional<User> user = userRepository.findUserByLogin(userDetails.getUsername());
             if (user.isPresent()) {
                 return user.get().getId();
             }

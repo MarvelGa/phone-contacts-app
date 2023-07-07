@@ -15,7 +15,7 @@ public class AuthenticationRequest {
 
     @NotBlank(message = "User name cannot be blank")
     @NotNull(message = "Username fields are required")
-    private String userName;
+    private String login;
     @NotBlank(message = "Password cannot be blank")
     @NotNull(message = "Password fields are required")
     private String password;
