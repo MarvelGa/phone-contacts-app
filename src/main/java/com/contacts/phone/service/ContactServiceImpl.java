@@ -37,7 +37,8 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public ResponseContactDto addContact(ContactDto contactDto) {
-        Optional<User> currentUser = userRepository.findUserById(getCurrentUserId());
+        UUID userId =  getCurrentUserId();
+        Optional<User> currentUser = userRepository.findUserById(userId);
         Contact contact = contactMapper.toEntity(contactDto);
         Contact savedContact = contactRepository.save(contact);
 
