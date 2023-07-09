@@ -38,8 +38,8 @@ public class ContactController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ResponseContactDto>> getAllContacts() {
-        List<ResponseContactDto> contacts = contactService.getAllContacts();
+    public ResponseEntity<List<ResponseContactDto>> getAllContactsByUserId() {
+        List<ResponseContactDto> contacts = contactService.getAllContactsByUserId();
         return ResponseEntity.ok(contacts);
     }
 }

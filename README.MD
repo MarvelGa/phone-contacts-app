@@ -48,5 +48,5 @@
 ```
 7. DELETE a Contact: DELETE Method:
    http://localhost:8080/phone-contacts/contacts/75b2a5aa-d2a6-4292-8a3f-430fd6debcd6
-8. GET All Contacts: GET Method:
+8. GET All User's Contacts: GET Method:
    http://localhost:8080/phone-contacts/contacts

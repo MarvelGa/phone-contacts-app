@@ -13,4 +13,7 @@ public interface ContactService {
     void deleteContact(String contactId);
 
     List<ResponseContactDto> getAllContacts();
+
+    List<ResponseContactDto> getAllContactsByUserId();
+
 }

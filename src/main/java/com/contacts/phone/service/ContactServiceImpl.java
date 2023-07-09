@@ -103,6 +103,17 @@ public class ContactServiceImpl implements ContactService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<ResponseContactDto> getAllContactsByUserId() {
+        UUID userId =  getCurrentUserId();
+
+        List<Contact> contacts = contactRepository.findAllByUserId(userId);
+        return contacts.stream()
+                .map(contactMapper::toDto)
+                .map(contactMapper::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
     public UUID getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
